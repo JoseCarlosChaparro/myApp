@@ -1,5 +1,6 @@
-import { View, Text, Button, SafeAreaView } from 'react-native'
+import { View, Button, SafeAreaView } from 'react-native'
 import React from 'react'
+import { ThemedText } from '@/components/ThemedText';
 
 export default function SettingsScreen(props: { navigation: any }) {
     const { navigation } = props
@@ -10,10 +11,10 @@ export default function SettingsScreen(props: { navigation: any }) {
 
   return (
     <SafeAreaView>
-      <Text>SettingsScreen</Text>
-      <Text>SettingsScreen</Text>
-      <Text>SettingsScreen</Text>
-      <Text>SettingsScreen</Text>
+      <ThemedText>SettingsScreen</ThemedText>
+      <ThemedText>SettingsScreen</ThemedText>
+      <ThemedText>SettingsScreen</ThemedText>
+      <ThemedText>SettingsScreen</ThemedText>
       <Button onPress={() => goToPage("Home")} title='Ir a Home'/>
     </SafeAreaView>
   )
