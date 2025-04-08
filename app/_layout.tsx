@@ -11,6 +11,7 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 
 import NavigationStack from '@/navigation/NavigationStack';
 import NavigationTab from '@/navigation/NavigationTab';
+import NavigationDrawer from '@/navigation/NavigationDrawer';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -40,7 +41,8 @@ export default function RootLayout() {
       <StatusBar style="auto" /> */}
       {/* <NavigationContainer> */}
         {/* <NavigationStack/> */}
-        <NavigationTab/>
+        {/* <NavigationTab/> */}
+        <NavigationDrawer/>
       {/* </NavigationContainer> */}
     </ThemeProvider>
   );
