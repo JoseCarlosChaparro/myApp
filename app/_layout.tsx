@@ -10,6 +10,7 @@ import 'react-native-gesture-handler'
 import { useColorScheme } from '@/hooks/useColorScheme';
 
 import NavigationStack from '@/navigation/NavigationStack';
+import NavigationTab from '@/navigation/NavigationTab';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -38,7 +39,8 @@ export default function RootLayout() {
       </Stack>
       <StatusBar style="auto" /> */}
       {/* <NavigationContainer> */}
-        <NavigationStack/>
+        {/* <NavigationStack/> */}
+        <NavigationTab/>
       {/* </NavigationContainer> */}
     </ThemeProvider>
   );
