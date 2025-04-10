@@ -1,129 +1,94 @@
-// HomeScreenWeb.tsx
 import React from 'react';
-import { Platform, View, Text } from 'react-native';
-// Asegúrate de instalar Bootstrap: npm install bootstrap
+import { View } from 'react-native';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ThemedText } from '@/components/ThemedText';
 
-const HomeScreen: React.FC = () => {
-    return (
-      // Usamos un View principal para la estructura general
-      <View style={{ flex: 1 }}>
-        {/* Nota: Debido a que trabajamos en un entorno web, envolvemos el contenido en un <div> con clases de Bootstrap */}
-        <div className="container">
-          {/* Navbar usando clases de Bootstrap */}
-          <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a className="navbar-brand" href="#">Mi App</a>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav">
-                <li className="nav-item active">
-                  <a className="nav-link" href="#">
-                    Inicio <span className="sr-only">(current)</span>
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Características
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Precios
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-  
-          {/* Sección principal: Jumbotron */}
-          <div className="row mt-4">
+const HomeScreenEnhanced: React.FC = () => {
+  return (
+    <View style={{ flex: 1 }}>
+      <div className="container-fluid p-0">
+        {/* Navbar unificada en bg-dark */}
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+          <a className="navbar-brand" href="#">Mi App</a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon" />
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto">
+              <li className="nav-item active">
+                <a className="nav-link" href="#">Inicio</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">Características</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="#">Precios</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        {/* Contenido principal */}
+        <div className="container mt-4">
+          <div className="row align-items-center">
             <div className="col-md-8">
-              <div className="jumbotron">
-                <ThemedText>
-                  Bienvenido a Mi App
-                </ThemedText>
-                <ThemedText>
-                  Esta es una interfaz de ejemplo utilizando Bootstrap con React Native Web
-                  y un componente de texto temático.
-                </ThemedText>
-              </div>
+              <ThemedText>
+                Bienvenido a Mi App
+              </ThemedText>
+              <ThemedText style={{ marginTop: 10 }}>
+                Esta es una interfaz de ejemplo utilizando Bootstrap con React Native Web
+                y un componente de texto temático.
+              </ThemedText>
             </div>
-            <div className="col-md-4 d-flex align-items-center">
+            <div className="col-md-4 text-md-end mt-3 mt-md-0">
               <button type="button" className="btn btn-primary btn-lg">
                 Llamada a la acción
               </button>
             </div>
           </div>
-  
-          {/* Sección de Cards para mostrar contenido */}
+
+          {/* Cards */}
           <div className="row mt-5">
-            {/* Card 1 */}
-            <div className="col-md-4">
-              <div className="card">
-                <img src="https://via.placeholder.com/150" className="card-img-top" alt="Imagen de ejemplo"/>
+            <div className="col-sm-12 col-md-4">
+              <div className="card shadow-sm mb-4">
+                <img
+                  src="https://via.placeholder.com/300x150"
+                  className="card-img-top"
+                  alt="Ejemplo"
+                />
                 <div className="card-body">
-                  <ThemedText className="card-title" style={{ fontWeight: 'bold' }}>
+                  <ThemedText style={{ fontWeight: 'bold' }}>
                     Título de la Card
                   </ThemedText>
-                  <ThemedText className="card-text">
-                    Texto descriptivo rápido para construir sobre el título y detallar el contenido de la card.
+                  <ThemedText>
+                    Texto descriptivo rápido para construir sobre el título y
+                    detallar el contenido de la card.
                   </ThemedText>
-                  <button className="btn btn-primary">Ver detalle</button>
+                  <button className="btn btn-primary mt-2">Ver detalle</button>
                 </div>
               </div>
             </div>
-            {/* Card 2 */}
-            <div className="col-md-4">
-              <div className="card">
-                <img src="https://via.placeholder.com/150" className="card-img-top" alt="Imagen de ejemplo"/>
-                <div className="card-body">
-                  <ThemedText className="card-title" style={{ fontWeight: 'bold' }}>
-                    Título de la Card
-                  </ThemedText>
-                  <ThemedText className="card-text">
-                    Otro ejemplo rápido de texto para complementar el contenido de la card.
-                  </ThemedText>
-                  <button className="btn btn-primary">Ver detalle</button>
-                </div>
-              </div>
-            </div>
-            {/* Card 3 */}
-            <div className="col-md-4">
-              <div className="card">
-                <img src="https://via.placeholder.com/150" className="card-img-top" alt="Imagen de ejemplo"/>
-                <div className="card-body">
-                  <ThemedText className="card-title" style={{ fontWeight: 'bold' }}>
-                    Título de la Card
-                  </ThemedText>
-                  <ThemedText className="card-text">
-                    Una breve descripción para ayudar a entender el contenido de esta sección.
-                  </ThemedText>
-                  <button className="btn btn-primary">Ver detalle</button>
-                </div>
-              </div>
-            </div>
+            {/* Repite las otras dos cards según tu necesidad */}
           </div>
-  
-          {/* Footer sencillo */}
-          <footer className="mt-5 text-center">
-            <ThemedText className="text-muted">
-              &copy; 2025 Mi App. Todos los derechos reservados.
-            </ThemedText>
-          </footer>
         </div>
-      </View>
-    );
-  };
-  
-  export default HomeScreen;
+
+        {/* Footer */}
+        <footer className="bg-dark text-center text-white py-3 mt-5">
+          <ThemedText>
+            &copy; 2025 Mi App. Todos los derechos reservados.
+          </ThemedText>
+        </footer>
+      </div>
+    </View>
+  );
+};
+
+export default HomeScreenEnhanced;
